@@ -9,7 +9,7 @@ function BestsellingCard() {
                     <div className='w-1/6 my-auto'><img className=' rounded-full' src={image} alt="" /></div>
                     <div className='my-auto'>
                         <div className=' mx-4 text-3xl'><p>Heading</p></div>
-                        <div className=' mx-4 text-2xl'><p>tag</p></div>
+                        <div className=' mx-4 text-lg'><p>tag</p></div>
                     </div>
                 </div>
                 <div className='flex gap-4 mx-4'>

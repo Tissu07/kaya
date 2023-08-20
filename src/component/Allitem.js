@@ -7,7 +7,7 @@ function Allitem() {
             <div className='flex my-4 gap-2 justify-center w-5/6 mx-auto py-5'>
 
                 <div className=''>
-                    <img className='rounded-full' src={image} alt="" />
+                    <img className='rounded-full ' src={image} alt="" />
                     <p className='text-sm text-center'>Tshirt</p>
                 </div>
                 <div className=''>
@@ -41,9 +41,7 @@ function Allitem() {
                 <div className=''>
                     <img className='rounded-full' src={image} alt="" />
                     <p className='text-sm text-center'>Tshirt</p>
-                </div>
-                
-                
+                </div> 
             </div>
         </div>
     )

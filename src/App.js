@@ -14,6 +14,7 @@ import BestsellingCard from './component/BestsellingCard';
 import Allitem from './component/Allitem';
 import CategoryButton from './component/CategoryButton';
 import Shop from './Page/Shop';
+import Footer from './component/Footer';
 
 
 
@@ -42,6 +43,7 @@ function App() {
             <Route exact path="show" element={<Allitem/>} />
             <Route exact path="category" element={<CategoryButton/>} />
             <Route exact path="shop" element={<Shop/>} />
+            <Route exact path="footer" element={<Footer/>} />
             
           </Routes>
         </div>

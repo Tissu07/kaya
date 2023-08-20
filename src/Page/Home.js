@@ -6,7 +6,7 @@ import Navbar from '../component/Navbar'
 
 
 
-import kImage from '../image/letter-k (white).png'
+
 import heroImage from '../image/whereslugo-croTkGSyM64-unsplash (1).jpg'
 import leviImage from '../image/levi.png'
 import ckImage from '../image/ck.png'
@@ -22,11 +22,8 @@ import show2 from '../image/austin-wade-d2s8NQ6WD24-unsplash.jpg'
 import show3 from '../image/aiony-haust-IXYxqP4zejo-unsplash.jpg'
 import show4 from '../image/sofia-3PgSkwoyIOM-unsplash.jpg'
 import offer from '../image/christian-gertenbach-AqCVniFulhY-unsplash.jpg'
-import facebook from '../image/facebook (2).png'
-import twitter from '../image/twitter (2).png'
-import instagram from '../image/instagram (3).png'
-import pintress from '../image/pinterest-circular-logo-symbol (1).png'
-import youtube from '../image/youtube (1).png'
+
+import Footer from '../component/Footer'
 
 
 
@@ -189,43 +186,15 @@ function Home() {
 
       </div>
 
+      <Footer/>
 
 
 
 
 
 
-      <footer class="bg-gray-300 mt-[10vw] p-[1vw] sm:mt-10 sm:py-10">
 
-
-        <div class="flex flex-col my-[2vw] mx-[8vw] sm:my-2 sm:mx-8 ">
-          <p class="m-[3vw] text-[5vw] sm:m-3 sm:text-lg md:text-xl cursor-pointer">SHOP</p>
-          <p class="m-[2vw] text-[5vw] sm:m-3 sm:text-lg md:text-xl cursor-pointer">CORPORATE INFO</p>
-          <p class="m-[2vw] text-[5vw] sm:m-3 sm:text-lg md:text-xl cursor-pointer">HELP</p>
-        </div>
-        <div class=" text-center text-[4vw] mt-[6vw] sm:text-xl sm:mt-6 sm:px-3">
-          Sign up now and be first to know about exclusive offers, latest fashion news & style tips!
-        </div>
-        <div
-          class="mt-[4.5vw] mb-[5vw] mx-[10vw] flex justify-between text-[5vw] sm:mt-10 sm:mb-5 sm:mx-10 sm:text-2xl">
-          <p className='cursor-pointer'>Read more</p>
-          <p>&rarr;</p>
-        </div>
-        <div class="flex justify-center mt-[8vw] sm:mt-8">
-          <img src={facebook} alt="" class="mx-[4vw] w-[5vw] sm:mx-4  object-scale-down sm:w-8 cursor-pointer" />
-          <img src={twitter} alt="" class="mx-[4vw] w-[5vw] sm:mx-4  object-scale-down sm:w-8 cursor-pointer" />
-          <img src={instagram} alt="" class="mx-[4vw] w-[5vw] sm:mx-4  object-scale-down sm:w-8 cursor-pointer" />
-          <img src={youtube} alt="" class="mx-[4vw] w-[5vw] sm:mx-4 object-scale-down sm:w-8  cursor-pointer" />
-          <img src={pintress} alt=""
-            class="mx-[4vw] w-[5vw] sm:mx-4 sm:w-8 object-scale-down " />
-        </div>
-        <div class=" text-center text-[3vw] m-[6vw] sm:m-6 sm:text-xl ">
-          The content of this site is copyright-protected and is property of Kayas.
-        </div>
-        <div class="flex justify-center">
-          <img src={kImage} alt="" class="w-[8vw] m=[4vw]  sm:w-16 sm:m-1" />
-        </div>
-      </footer>
+      
 
     </div>
   )
