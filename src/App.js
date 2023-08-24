@@ -15,6 +15,7 @@ import Allitem from './component/Allitem';
 import CategoryButton from './component/CategoryButton';
 import Shop from './Page/Shop';
 import Footer from './component/Footer';
+import MainHeader from './component/MainHeader';
 
 
 
@@ -37,6 +38,7 @@ function App() {
         <div>
           <Routes>
             <Route exact path="/" element={<Home />} />
+            <Route exact path="/main" element={<MainHeader />} />
             <Route exact path="header" element={<Header />} />
             <Route exact path="card" element={<ProductCard />} />
             <Route exact path="best" element={<BestsellingCard/>} />

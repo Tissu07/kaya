@@ -7,7 +7,7 @@ import Navbar from '../component/Navbar'
 
 
 
-import heroImage from '../image/whereslugo-croTkGSyM64-unsplash (1).jpg'
+
 import leviImage from '../image/levi.png'
 import ckImage from '../image/ck.png'
 import addidasImage from '../image/adidas.png'
@@ -24,6 +24,7 @@ import show4 from '../image/sofia-3PgSkwoyIOM-unsplash.jpg'
 import offer from '../image/christian-gertenbach-AqCVniFulhY-unsplash.jpg'
 
 import Footer from '../component/Footer'
+import MainHeader from '../component/MainHeader'
 
 
 
@@ -35,23 +36,11 @@ function Home() {
   return (
     <div>
       <Navbar />
+      <MainHeader />
 
 
-      <div class="hero -my-[20vw]">
-        <div class="relative -top-[15vw]  sm:-top-[25vw] md:-top-[24vw]">
-          <img src={heroImage} alt=""
-            class=" z-0 w-full  bg-cover opacity-90  " />
-        </div>
 
-        <div class="heading absolute top-[40vw] flex flex-col left-[25vw]">
-          <div class="drop-shadow-2xl  text-center  font-sans  text-white text-[8vw]">style your own</div>
-          <p
-            class=" hover:text-white hover:bg-gray-700 hover:border-2 cursor-pointer drop-shadow-2xl p-[3vw] border-2 mt-[8vw] text-center w-[30vw] m-auto rounded-xl text-white text-[4vw] sm:text-lg sm:w-3/5 sm:p-4 ">
-            Shop Now</p>
-        </div>
-      </div>
-
-      <div class="mx-4 mt-[10vw] sm:mt-[-12vw] ">
+      <div class="mx-4 my-10 ">
 
         <div>
           <h2 class="font-bold text-[5vw] text-center sm:text-start sm:text-3xl ">Brands</h2>
@@ -186,7 +175,7 @@ function Home() {
 
       </div>
 
-      <Footer/>
+      <Footer />
 
 
 
@@ -194,7 +183,7 @@ function Home() {
 
 
 
-      
+
 
     </div>
   )
