@@ -30,7 +30,7 @@ function Shop(props) {
         },
         desktop: {
             breakpoint: { max: 3000, min: 1024 },
-            items: 3
+            items: 4
         },
         tablet: {
             breakpoint: { max: 1024, min: 464 },
@@ -75,13 +75,13 @@ function Shop(props) {
                     containerClass="carousel-container"
                     dotListClass="custom-dot-list-style"
                     className='m-10'>
-                    <div className='mx-2'><ProductCard /></div>
-                    <div className='mx-2'><ProductCard /></div>
-                    <div className='mx-2'><ProductCard /></div>
-                    <div className='mx-2'><ProductCard /></div>
-                    <div className='mx-2'><ProductCard /></div>
-                    <div className='mx-2'><ProductCard /></div>
-                    <div className='mx-2'><ProductCard /></div>
+                    <div className='mx-3'><ProductCard /></div>
+                    <div className='mx-3'><ProductCard /></div>
+                    <div className='mx-3'><ProductCard /></div>
+                    <div className='mx-3'><ProductCard /></div>
+                    <div className='mx-3'><ProductCard /></div>
+                    <div className='mx-3'><ProductCard /></div>
+                    <div className='mx-3'><ProductCard /></div>
                     <div className='mx-2 mb-8'><ProductCard /></div>
                 </Carousel2>;
 
