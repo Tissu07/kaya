@@ -27,7 +27,7 @@ function Navbar() {
               placeholder="Search for products..."
               className="px-4 py-2 rounded-l-md focus:outline-none focus:ring focus:border-blue-300"
             />
-            <button className="bg-blue-500 text-white px-4 py-2 rounded-r-md hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300">
+            <button className="bg-pink-500 text-white px-4 py-2 rounded-r-md hover:bg-pink-600 focus:outline-none focus:ring focus:border-blue-300">
               Search
             </button>
           </div>

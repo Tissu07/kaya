@@ -16,6 +16,8 @@ import CategoryButton from './component/CategoryButton';
 import Shop from './Page/Shop';
 import Footer from './component/Footer';
 import MainHeader from './component/MainHeader';
+import CategoryNavbar from './component/CategoryNavbar';
+import MainState from './Context/MainState';
 
 
 
@@ -33,23 +35,26 @@ function App() {
       {/* <button className='black' onClick={handleGoogleLogin}>
         login
       </button> */}
-      <Router>
-        
-        <div>
-          <Routes>
-            <Route exact path="/" element={<Home />} />
-            <Route exact path="/main" element={<MainHeader />} />
-            <Route exact path="header" element={<Header />} />
-            <Route exact path="card" element={<ProductCard />} />
-            <Route exact path="best" element={<BestsellingCard/>} />
-            <Route exact path="show" element={<Allitem/>} />
-            <Route exact path="category" element={<CategoryButton/>} />
-            <Route exact path="shop" element={<Shop/>} />
-            <Route exact path="footer" element={<Footer/>} />
-            
-          </Routes>
-        </div>
-      </Router>
+      <MainState>
+        <Router>
+
+          <div>
+            <Routes>
+              <Route exact path="/" element={<Home />} />
+              <Route exact path="/main" element={<MainHeader />} />
+              <Route exact path="header" element={<Header />} />
+              <Route exact path="card" element={<ProductCard />} />
+              <Route exact path="best" element={<BestsellingCard />} />
+              <Route exact path="show" element={<Allitem />} />
+              <Route exact path="category" element={<CategoryButton />} />
+              <Route exact path="shop" element={<Shop />} />
+              <Route exact path="footer" element={<Footer />} />
+              <Route exact path="categoryNavbar" element={<CategoryNavbar />} />
+
+            </Routes>
+          </div>
+        </Router>
+      </ MainState>
 
     </div>
   );

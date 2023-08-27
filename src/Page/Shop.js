@@ -1,4 +1,6 @@
-import React from 'react'
+import React, { useContext, useEffect} from 'react'
+import mainContext from '../Context/mainContext'
+
 import Header from '../component/Header'
 import Allitem from '../component/Allitem'
 import ProductCard from '../component/ProductCard'
@@ -21,6 +23,13 @@ import Carousel2 from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 
 function Shop(props) {
+
+    const context = useContext(mainContext)
+    const {getGenderCategory } = context;
+
+    useEffect(() => {
+        getGenderCategory();
+    }, [])
 
     const responsive = {
         superLargeDesktop: {
@@ -45,10 +54,10 @@ function Shop(props) {
         <div>
 
             <Carousel autoPlay={true} interval={5000} infiniteLoop={true}>
-                <Header image={header1} color='white' />
+                <Header image={header1} color='lightgrey' />
                 <Header image={header2} color='black' text='white' />
                 <Header image={header3} color='grey' />
-                <Header image={header4} color='white' />
+                <Header image={header4} color='wheat' />
 
             </Carousel>
 
@@ -63,7 +72,7 @@ function Shop(props) {
                 <ProductCard />
             </div> */}
 
-            <section className='bg-yellow-50 pt-10'>
+            <section className='bg-pink-50 pt-10'>
                 <Carousel2
                     swipeable={false}
                     draggable={false}

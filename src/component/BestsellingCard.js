@@ -1,5 +1,5 @@
 import React from 'react'
-import image from '../image/header.jpg'
+import image from '../image/dress2.jpeg'
 
 function BestsellingCard() {
     return (
@@ -13,9 +13,9 @@ function BestsellingCard() {
                     </div>
                 </div>
                 <div className='flex gap-4 mx-4'>
-                    <div><img className='rounded-3xl' src={image} alt="" /><p className='text-center text-2xl my-2 font-semibold'>$40.00</p></div>
-                    <div><img className='rounded-3xl' src={image} alt="" /><p className='text-center text-2xl my-2 font-semibold'>$40.00</p></div>
-                    <div><img className='rounded-3xl' src={image} alt="" /><p className='text-center text-2xl my-2 font-semibold'>$40.00</p></div>
+                    <div className=''><img className='rounded-3xl w-[80%] mx-auto' src={image} alt="" /><p className='text-center text-lg my-1 font-semibold '>$40.00</p></div>
+                    <div className=''><img className='rounded-3xl w-[80%] mx-auto' src={image} alt="" /><p className='text-center text-lg my-1 font-semibold '>$40.00</p></div>
+                    <div className=''><img className='rounded-3xl w-[80%] mx-auto' src={image} alt="" /><p className='text-center text-lg my-1 font-semibold '>$40.00</p></div>
                 </div>
             </div>
         </div>
