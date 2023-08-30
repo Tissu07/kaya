@@ -25,10 +25,12 @@ import 'react-multi-carousel/lib/styles.css';
 function Shop(props) {
 
     const context = useContext(mainContext)
-    const {getGenderCategory } = context;
+    const {getGenderCategoryMale,getGenderCategoryFemale,getGenderCategoryKid, genderCategoryMale } = context;
 
     useEffect(() => {
-        getGenderCategory();
+        getGenderCategoryMale();
+        getGenderCategoryFemale();
+        getGenderCategoryKid();
     }, [])
 
     const responsive = {
