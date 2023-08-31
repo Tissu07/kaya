@@ -1,4 +1,4 @@
-import React, { useContext, useEffect} from 'react'
+import React, { useContext, useEffect } from 'react'
 import mainContext from '../Context/mainContext'
 
 import Header from '../component/Header'
@@ -21,11 +21,13 @@ import { Carousel } from 'react-responsive-carousel';
 
 import Carousel2 from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
+import CategoryDropdown from '../component/CategoryDropdown'
+import CategoryNavbar from '../component/CategoryNavbar'
 
 function Shop(props) {
 
     const context = useContext(mainContext)
-    const {getGenderCategoryMale,getGenderCategoryFemale,getGenderCategoryKid, genderCategoryMale } = context;
+    const { getGenderCategoryMale, getGenderCategoryFemale, getGenderCategoryKid, dropDown } = context;
 
     useEffect(() => {
         getGenderCategoryMale();
@@ -53,15 +55,19 @@ function Shop(props) {
         }
     };
     return (
-        <div>
+        <div >
+        
+            <CategoryNavbar />
 
-            <Carousel autoPlay={true} interval={5000} infiniteLoop={true}>
+            <Carousel autoPlay={true} interval={5000} infiniteLoop={true} className='z-0 mt-10'>
                 <Header image={header1} color='lightgrey' />
                 <Header image={header2} color='black' text='white' />
                 <Header image={header3} color='grey' />
                 <Header image={header4} color='wheat' />
 
             </Carousel>
+
+
 
             <div>
                 <Allitem />

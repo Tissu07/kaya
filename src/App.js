@@ -18,6 +18,7 @@ import Footer from './component/Footer';
 import MainHeader from './component/MainHeader';
 import CategoryNavbar from './component/CategoryNavbar';
 import MainState from './Context/MainState';
+import Catalog from './Page/Catalog';
 
 
 
@@ -50,6 +51,7 @@ function App() {
               <Route exact path="shop" element={<Shop />} />
               <Route exact path="footer" element={<Footer />} />
               <Route exact path="categoryNavbar" element={<CategoryNavbar />} />
+              <Route exact path="shop/catalog" element={<Catalog/>} />
 
             </Routes>
           </div>

@@ -1,17 +1,21 @@
-import React, {useEffect, useState} from 'react'
+import React, {useEffect, useState, useContext} from 'react'
 import CategoryDropdown from './CategoryDropdown'
+import mainContext from '../Context/mainContext'
 
-function CategoryNavbar() {
+
+function CategoryNavbar(props) {
+    
+    const context = useContext(mainContext)
+    const {genderCategoryMale, genderCategoryFemale, genderCategoryKid, dropDownShow, setDropDownShow,dropDown, setDropDown } = context;
+    
     
 
-    const [dropDown, setDropDown] = useState('')
-
     const onMen = () =>{
-        console.log("men")
-        setDropDown("men")
+        console.log("male")
+        setDropDown("male")
     }
     const onWomen = () =>{
-        setDropDown("women")
+        setDropDown("female")
     }
     const onKid = () =>{
         setDropDown("kid")
@@ -21,19 +25,19 @@ function CategoryNavbar() {
     }
 
     return (
-        <div className='border-2'>
-            <div className='flex gap-8 border-2 w-1/2 mx-auto justify-center'>
-                <div>
-                    <p className='cursor-pointer' onMouseOver={onMen} onMouseOut={onDefault}>MEN</p>
-                    {dropDown == "men"? <CategoryDropdown/>: ""}
+        <div className='shadow-md  '>
+            <div className='flex gap-8  w-1/2 mx-auto justify-center pt-4'>
+                <div onMouseOver={onMen} onMouseOut={onDefault} className=' pb-4 cursor-pointer'>
+                    <p className='cursor-pointer' >MEN</p>
+                    {dropDown == "male" || dropDownShow? (<CategoryDropdown data={genderCategoryMale}/>): ("")}
                 </div>
-                <div>
-                    <p className='cursor-pointer' onMouseOver={onWomen} onMouseOut={onDefault}>WOMEN</p>
-                    {dropDown == "women"? <CategoryDropdown/>: ""}
+                <div onMouseOver={onWomen} onMouseOut={onDefault} className=' pb-4'>
+                    <p className='cursor-pointer' >WOMEN</p>
+                    {dropDown == "female"? <CategoryDropdown data={genderCategoryFemale}/>: ""}
                 </div>
-                <div>
+                <div onMouseOver={onKid} onMouseOut={onDefault} className=' pb-4'>
                     <p className='cursor-pointer' onMouseOver={onKid} onMouseOut={onDefault}>KIDS</p>
-                    {dropDown == "kid"? <CategoryDropdown/>: ""}
+                    {dropDown == "kid"? <CategoryDropdown data={genderCategoryKid}/>: ""}
                 </div>
             </div>
         </div>

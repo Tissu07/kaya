@@ -33,8 +33,12 @@ import MainHeader from '../component/MainHeader'
 
 
 function Home() {
+
+  
+
+
   return (
-    <div>
+    <div >
       <Navbar />
       <MainHeader />
 
