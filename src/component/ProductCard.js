@@ -1,7 +1,7 @@
 import React from 'react'
 import image from '../image/dress3.jpeg'
 
-function ProductCard() {
+function ProductCard(props) {
   return (
     <div>
       <div className='rounded-3xl '>
@@ -12,9 +12,9 @@ function ProductCard() {
             </div>
         </div>
         <div className='text-center bg-white rounded-b-3xl border-2'>
-            <p className='text-2xl py-2'>Heading</p>
-            <p className='text-lg py-2'>describtion</p>
-            <p className='text-lg py-2'>$ 99.99</p>
+            <p className='text-2xl py-2'>{props.heading}</p>
+            <p className='text-lg py-2'>{props.description}</p>
+            <p className='text-lg py-2'>{props.price}</p>
         </div>
       </div>
     </div>
