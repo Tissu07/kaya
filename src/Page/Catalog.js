@@ -18,7 +18,7 @@ function Catalog() {
           Categoty
           
         </div>
-        <div className='flex flex-wrap w-5/6 justify-between pl-4'>
+        <div className='flex flex-wrap w-5/6  pl-4'>
           {productByGender.map((each) => (
             <div className=' w-64 ' key={each.id}>
               <ProductCard2 image={image} heading={each.name} description={each.description} price={each.price} />
