@@ -20,6 +20,7 @@ import CategoryNavbar from './component/CategoryNavbar';
 import MainState from './Context/MainState';
 import Catalog from './Page/Catalog';
 import ProductCard2 from './component/ProductCard2';
+import ProductProfile from './component/ProductProfile';
 
 
 
@@ -54,6 +55,7 @@ function App() {
               <Route exact path="categoryNavbar" element={<CategoryNavbar />} />
               <Route exact path="shop/catalog" element={<Catalog/>} />
               <Route exact path="productCard2" element={<ProductCard2/>} />
+              <Route exact path="productProfile" element={<ProductProfile/>} />
 
 
             </Routes>
