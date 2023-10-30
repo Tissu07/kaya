@@ -10,6 +10,7 @@ const MainState = (props) => {
   const [dropDownShow, setDropDownShow] = useState(false)
   const [dropDown, setDropDown] = useState('')
   const [productByGender, setProductByGender] = useState([])
+  const [productProfile,setProductProfile] = useState([])
 
   //Product detail upload
   const [productCredential, setProductCredential] = useState({name:"", description:"", price:"", quantity:"", category:""})
@@ -26,6 +27,7 @@ const MainState = (props) => {
     setGenderCategoryMale(json);
     
   }
+
   const getGenderCategoryFemale = async () => {
     // API call 
     const response = await fetch(`${host}/api/categories/gender/female`, {
@@ -38,6 +40,7 @@ const MainState = (props) => {
     setGenderCategoryFemale(json);
     
   }
+
   const getGenderCategoryKid = async () => {
     // API call 
     const response = await fetch(`${host}/api/categories/gender/kid`, {
@@ -79,11 +82,24 @@ const MainState = (props) => {
     }
 }
 
+
+const getProductById = async (id) => {
+  // API call 
+  const response = await fetch(`${host}/api/products/${id}`, {
+    method: "GET",
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
+  const json = await response.json()
+  setProductProfile(json);
   
+}
+
 
   
   return (
-     <mainContext.Provider value={{genderCategoryMale, getGenderCategoryMale,genderCategoryFemale,genderCategoryKid, getGenderCategoryFemale, getGenderCategoryKid, dropDownShow, setDropDownShow,dropDown, setDropDown, getProductByGender, productByGender, productCredential,setProductCredential, addProduct}}>
+     <mainContext.Provider value={{genderCategoryMale, getGenderCategoryMale,genderCategoryFemale,genderCategoryKid, getGenderCategoryFemale, getGenderCategoryKid, dropDownShow, setDropDownShow,dropDown, setDropDown, getProductByGender, productByGender, productCredential,setProductCredential, addProduct,getProductById,productProfile,setProductProfile}}>
       {props.children}
     </mainContext.Provider>
   )

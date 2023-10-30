@@ -61,7 +61,7 @@ function App() {
               <Route exact path="productProfile" element={<ProductProfile/>} />
               <Route exact path="upload" element={<UploadImage/>} />
               <Route exact path="uploadProduct" element={<Product/>} />
-              <Route exact path="ProductLarge" element={<ProductLargePage/>} />
+              <Route exact path="shop/catalog/ProductLarge" element={<ProductLargePage/>} />
 
 
             </Routes>
