@@ -6,15 +6,14 @@ function ProductCard(props) {
     <div>
       <div className='rounded-3xl '>
         <div>
-            <img className='rounded-t-3xl' src={image} alt="" />
-            <div>
-                <img src="" alt="" />
-            </div>
+            <img className='w-80 h-80' src={image} alt="" />
+            
         </div>
-        <div className='text-center bg-white rounded-b-3xl border-2'>
-            <p className='text-2xl py-2'>{props.heading}</p>
-            <p className='text-lg py-2'>{props.description}</p>
-            <p className='text-lg py-2'>{props.price}</p>
+        <div className=''>
+          <div className='py-1'>
+            <p className='text-xl '>Heading</p>
+            <p className='text-lg '>price</p>
+          </div>
         </div>
       </div>
     </div>

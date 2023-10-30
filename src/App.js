@@ -21,6 +21,9 @@ import MainState from './Context/MainState';
 import Catalog from './Page/Catalog';
 import ProductCard2 from './component/ProductCard2';
 import ProductProfile from './component/ProductProfile';
+import UploadImage from './component/UploadImage';
+import Product from './component/Product';
+import ProductLargePage from './component/ProductLargePage';
 
 
 
@@ -56,6 +59,9 @@ function App() {
               <Route exact path="shop/catalog" element={<Catalog/>} />
               <Route exact path="productCard2" element={<ProductCard2/>} />
               <Route exact path="productProfile" element={<ProductProfile/>} />
+              <Route exact path="upload" element={<UploadImage/>} />
+              <Route exact path="uploadProduct" element={<Product/>} />
+              <Route exact path="ProductLarge" element={<ProductLargePage/>} />
 
 
             </Routes>

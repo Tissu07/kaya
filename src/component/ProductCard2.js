@@ -3,7 +3,7 @@ import React from 'react'
 function ProductCard2(props) {
   return (
     <div>
-        <div className='border-2  w-56 mt-2'>
+        <div className=' w-56 mt-2'>
             <div>
                 <img src={props.image} alt="" />
             </div>

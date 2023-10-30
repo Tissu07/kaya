@@ -1,20 +1,19 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import image from '../image/dress2.jpeg'
 
 
 
 function ProductProfile() {
 
-    const options = [
-        { 
-          value: 1,
-          label: "Leanne Graham"
-        },
-        {
-          value:  2,
-          label: "Ervin Howell"
-        }
-      ];
+    useEffect(() => {
+        setToggle('')
+    }, []);
+
+    const [toggle, setToggle] = useState("");
+
+    const set = (e) => {
+      setToggle(e.target.innerText)
+    }
 
     return (
         <div className='flex ' >
@@ -35,8 +34,29 @@ function ProductProfile() {
                         <p className='font-bold text-white'>Add</p>
                     </div>
                 </div>
+                <div className='w-[24rem] mx-auto'>
+                    <p onClick={set} className='cursor-pointer border-t-2'>
+                        show first
+                    </p>
+                    <div style={toggle === "show first"? {display:'block'}:{display:'none'}} className=''>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod voluptatibus modi incidunt, doloribus nulla ipsum repudiandae numquam expedita laborum itaque, unde ipsam fugit ducimus, perspiciatis consequatur saepe. Placeat, provident. Amet.</p>
+                    </div>
+                    <p onClick={set} className='cursor-pointer border-t-2'>
+                        show second
+                    </p>
+                    <div style={toggle === "show second"? {display:'block'}:{display:'none'}} className=''>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod voluptatibus modi incidunt, doloribus nulla ipsum repudiandae numquam expedita laborum itaque, unde ipsam fugit ducimus, perspiciatis consequatur saepe. Placeat, provident. Amet.</p>
+                    </div>
+                    <p onClick={set} className='cursor-pointer border-t-2'>
+                        show third
+                    </p>
+                    <div style={toggle === "show third"? {display:'block'}:{display:'none'}} className=''>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod voluptatibus modi incidunt, doloribus nulla ipsum repudiandae numquam expedita laborum itaque, unde ipsam fugit ducimus, perspiciatis consequatur saepe. Placeat, provident. Amet.</p>
+                    </div>
+                </div>
             </div>
         </div>
+       
     )
 }
 
