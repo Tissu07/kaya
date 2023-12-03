@@ -10,10 +10,13 @@ const MainState = (props) => {
   const [dropDownShow, setDropDownShow] = useState(false)
   const [dropDown, setDropDown] = useState('')
   const [productByGender, setProductByGender] = useState([])
-  const [productProfile,setProductProfile] = useState([])
+  const [productProfile, setProductProfile] = useState([])
+  const [cart,setCart] = useState([])
+  const [cartProduct, setCartProduct] = useState([])
+  const [uploadedImage, setUploadedImage] = useState("")
 
   //Product detail upload
-  const [productCredential, setProductCredential] = useState({name:"", description:"", price:"", quantity:"", category:""})
+  const [productCredential, setProductCredential] = useState({ name: "", description: "", price: "", quantity: "", category: "" })
 
   const getGenderCategoryMale = async () => {
     // API call 
@@ -25,7 +28,7 @@ const MainState = (props) => {
     });
     const json = await response.json()
     setGenderCategoryMale(json);
-    
+
   }
 
   const getGenderCategoryFemale = async () => {
@@ -38,7 +41,7 @@ const MainState = (props) => {
     });
     const json = await response.json()
     setGenderCategoryFemale(json);
-    
+
   }
 
   const getGenderCategoryKid = async () => {
@@ -51,7 +54,7 @@ const MainState = (props) => {
     });
     const json = await response.json()
     setGenderCategoryKid(json);
-    
+
   }
 
   const getProductByGender = async (gender, category) => {
@@ -63,43 +66,130 @@ const MainState = (props) => {
       },
     });
     const json = await response.json()
-    setProductByGender(json)    
+    setProductByGender(json)
   }
 
-  const addProduct = async (formData) => {
+  const addProduct = async (name,description,price,stockQuantity,categoryName,image,gender) => {
     try {
-        const response = await fetch(`${host}/api/products/male`, {
-            method: "POST",
-            body: formData,
-        });
-
-        
-
-        const json = await response.json();
-        console.log(json);
+      const response = await fetch(`${host}/api/products/${gender}`, {
+        method: "POST",
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body:JSON.stringify({
+          name,
+          description,
+          price,
+          stockQuantity,
+          categoryName,
+          image
+        }),
+      });
+      const json = await response.json();
+      console.log(json);
     } catch (err) {
-        console.log(err);
+      console.log("error in added");
     }
-}
+  }
 
+  const getProductById = async (id) => {
+    // API call 
+    const response = await fetch(`${host}/api/products/${id}`, {
+      method: "GET",
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+    const json = await response.json()
+      setProductProfile(json);
+  }
 
-const getProductById = async (id) => {
-  // API call 
-  const response = await fetch(`${host}/api/products/${id}`, {
-    method: "GET",
-    headers: {
-      'Content-Type': 'application/json',
-    },
-  });
-  const json = await response.json()
-  setProductProfile(json);
+  const addCart = async (productId, quantity) => {
+    try {
+      const response = await fetch(`${host}/api/cart/648a2e6e4beed104b2528f95`, {
+        method: "POST",
+        body:JSON.stringify({
+          productId,
+          quantity,
+        }),
+        headers: {
+          "Content-type": "application/json; charset=UTF-8"
+        }
+      });
+
+      const json = await response.json();
+      console.log("added")
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
+  const getCartDetail = async() => {
+    try{
+      const response = await fetch(`${host}/api/cart/648a2e6e4beed104b2528f95`, {
+        method: "GET",
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+      const json = await response.json()
+      setCart(json);
+      console.log("get cart detail")
+    }
+    catch(error){
+      console.log({error:"Issue in get cart data"})
+    }
+  }
+
+  const cartProductDetail = async (productId) => {
+    const response = await fetch(`${host}/api/products/${productId}`, {
+      method: "GET",
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+    const json = await response.json();
+    // Create a new object with the data from the API response
+    const temp = {
+      name: json.name,
+      description: json.description,
+      price: json.price,
+      image: json.image,
+    };
+
+    return temp
   
-}
+    // Create a new array by spreading the existing cartProduct array and appending the new item
+    // if(cartProduct){
+    //   const newCartProduct = [...cartProduct, temp];
+    //   setCartProduct(newCartProduct);
+    //   console.log("Cart Product detail fetch")
+    // }
+    // else{
+    //   setCartProduct(temp)
+    // }    
+  };
 
 
-  
+  const fetchCartProductsDetails = async (cart) => {
+    try{
+      const updatedCartProducts = [];
+      
+      for (const product of cart.products) {
+        const productDetail = await cartProductDetail(product.productId);
+        updatedCartProducts.push(productDetail);
+      }
+
+      setCartProduct(updatedCartProducts);
+    
+    }
+    catch(error){
+      console.log({error:"cant'fetch"})
+    }
+  };
+
   return (
-     <mainContext.Provider value={{genderCategoryMale, getGenderCategoryMale,genderCategoryFemale,genderCategoryKid, getGenderCategoryFemale, getGenderCategoryKid, dropDownShow, setDropDownShow,dropDown, setDropDown, getProductByGender, productByGender, productCredential,setProductCredential, addProduct,getProductById,productProfile,setProductProfile}}>
+    <mainContext.Provider value={{ genderCategoryMale, getGenderCategoryMale, genderCategoryFemale, genderCategoryKid, getGenderCategoryFemale, getGenderCategoryKid, dropDownShow, setDropDownShow, dropDown, setDropDown, getProductByGender, productByGender, productCredential, setProductCredential, addProduct, getProductById, productProfile, setProductProfile, addCart, cart, getCartDetail,cartProductDetail,cartProduct,fetchCartProductsDetails,cartProduct,uploadedImage, setUploadedImage}}>
       {props.children}
     </mainContext.Provider>
   )

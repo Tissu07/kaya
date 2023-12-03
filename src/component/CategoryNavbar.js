@@ -11,7 +11,6 @@ function CategoryNavbar(props) {
     
 
     const onMen = () =>{
-        console.log("male")
         setDropDown("male")
     }
     const onWomen = () =>{

@@ -1,51 +1,78 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react';
+import axios from 'axios';
+import mainContext from '../Context/mainContext';
 
-function UploadImage() {
+const ImageUploadForm = () => {
+  const context = useContext(mainContext);
+  const {setUploadedImage,uploadedImage} = context;
+  const [file, setFile] = useState(null);
 
-    const [selectedFile, setSelectedFile] = useState(null);
-    const [message, setMessage] = useState('');
+  const handleFileChange = (event) => {
+    setFile(event.target.files[0]);
+  };
 
-    const handleFileChange = (e) => {
-        const file = e.target.files[0];
-        setSelectedFile(file);
-    };
+  // const handleUpload = async () => {
+  //   try {
+  //     const formData = new FormData();
+  //     formData.append('image', file);
 
-    const handleUpload = async () => {
-        if (!selectedFile) {
-            setMessage('Please select an image to upload.');
-            return;
-        }
-
-        const formData = new FormData();
-        formData.append('image', selectedFile);
+  //     await axios.post('http://localhost:5000/api/uploadImage/upload', formData, {
+  //       headers: {
+  //         'Content-Type': 'multipart/form-data',
+  //       },
+  //     });
 
 
-        try {
-            const response = await fetch('http://localhost:5000/api/uploadImage', {
-                method: 'POST',
-                body: formData,
-            });
+  //     // Handle success, e.g., show a success message
+  //     console.log('Image uploaded successfully');
+  //   } catch (error) {
+  //     // Handle error, e.g., show an error message
+  //     console.error('Error uploading image', error);
+  //   }
+  // };
 
-            if (response.ok) {
-                const data = await response.json();
-                setMessage(`Image uploaded successfully. Image ID: ${data.fileId}`);
-            } else {
-                setMessage('Error uploading image.');
-            }
-        } catch (error) {
-            console.error('Error:', error);
-            setMessage('An error occurred.');
-        }
-    };
 
-    return (
-        <div>
-            <h1>Image Upload</h1>
-            <input type="file" name="image" accept="image/*"   onChange={handleFileChange} />
-            <button className='bg-blue-500' onClick={handleUpload}>Upload Image</button>
-            <div>{message}</div>
-        </div>
-    )
-}
+  const handleUpload = async (e) => {
+    e.preventDefault()
+    try {
+      const formData = new FormData();
+      formData.append('image', file);
+  
+      const response = await axios.post('http://localhost:5000/api/uploadImage/upload', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      });
+  
+      // Extract imageId from the response
+      const { imageId } = response.data;
+  
+      // Now you can use the imageId variable as needed
+      console.log('Image ID:', imageId);
+      setUploadedImage(imageId);
+  
+      // Handle success, e.g., show a success message
+      console.log('Image uploaded successfully');
+    } catch (error) {
+      // Handle error, e.g., show an error message
+      console.error('Error uploading image', error);
+    }
+  };
 
-export default UploadImage
+  return (
+    <>
+    <div>
+      <h2>Image Upload</h2>
+      <input type="file" onChange={handleFileChange} />
+      <button onClick={handleUpload}>Upload</button>
+      
+    </div>
+    {/* <div>
+        <img src="http://localhost:5000/api/uploadImage/656661573c178cff7797d4b2" alt="Displayed Image" />
+
+    </div> */}
+    </>
+  );
+};
+
+export default ImageUploadForm;

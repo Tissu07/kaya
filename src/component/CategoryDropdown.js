@@ -7,13 +7,9 @@ function CategoryDropdown(props) {
   const { setDropDownShow, dropDown, getProductByGender, productByGender } = context;
 
   const clothShow = (e) =>{
-    console.log(dropDown)
-    console.log(e.target.innerText)
     getProductByGender(dropDown, e.target.innerText )
   }
-  useEffect(() => {
-    console.log(productByGender); 
-  }, [productByGender]);
+
 
   return (
     <div className='absolute top-[3.6rem] z-50' onMouseOver={setDropDownShow(true)} onMouseOut={setDropDownShow(false)}>

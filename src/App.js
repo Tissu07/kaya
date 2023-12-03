@@ -24,6 +24,10 @@ import ProductProfile from './component/ProductProfile';
 import UploadImage from './component/UploadImage';
 import Product from './component/Product';
 import ProductLargePage from './component/ProductLargePage';
+import Cart from './component/Cart';
+import CartList from './component/CartList';
+import ImageUploadByBash from './component/ImageUploadByBash';
+import ProductUpload from './component/ProductUpload';
 
 
 
@@ -48,6 +52,7 @@ function App() {
             <Routes>
               <Route exact path="/" element={<Home />} />
               <Route exact path="/main" element={<MainHeader />} />
+              <Route exact path="/cart" element={<Cart />} />
               <Route exact path="header" element={<Header />} />
               <Route exact path="card" element={<ProductCard />} />
               <Route exact path="best" element={<BestsellingCard />} />
@@ -61,7 +66,11 @@ function App() {
               <Route exact path="productProfile" element={<ProductProfile/>} />
               <Route exact path="upload" element={<UploadImage/>} />
               <Route exact path="uploadProduct" element={<Product/>} />
+              <Route exact path="List" element={<CartList/>} />
+              <Route exact path="BashUpload" element={<ImageUploadByBash/>} />
+              <Route exact path="ProductUpload" element={<ProductUpload/>} />
               <Route exact path="shop/catalog/ProductLarge" element={<ProductLargePage/>} />
+              
 
 
             </Routes>

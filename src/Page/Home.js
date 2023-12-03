@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { useEffect,useContext } from 'react'
 import { Link } from 'react-router-dom'
 import Navbar from '../component/Navbar'
-
+import mainContext from '../Context/mainContext'
 
 
 
@@ -34,6 +34,13 @@ import MainHeader from '../component/MainHeader'
 
 function Home() {
 
+  const context = useContext(mainContext)
+  const {getCartDetail} = context;
+
+
+  useEffect(()=>{
+    getCartDetail();
+  },[])
   
 
 

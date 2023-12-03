@@ -1,11 +1,28 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import flower from '../image/flower.jpeg'
 import mainContext from '../Context/mainContext'
+import Cart from './Cart';
 
 function ProductLargePage() {
 
     const context = useContext(mainContext)
-    const { productProfile } = context;
+    const { productProfile,addCart,fetchCartProductsDetails,cart,cartProduct,getCartDetail } = context;
+
+    const [showCart, setShowCart] = useState(false)
+    
+
+    const handleCart = () =>{
+        if(showCart){
+            setShowCart(false)
+        }
+        else{
+            setShowCart(true)
+            addCart(productProfile._id,2)
+            getCartDetail()
+            fetchCartProductsDetails(cart)
+            console.log(cartProduct)
+        }
+    }
 
 
     return (
@@ -19,14 +36,15 @@ function ProductLargePage() {
 
                 </div>
                 <div className=' w-1/4 mx-10'>
-                    <p>{productProfile._id}</p>
                     <div><p className='text-3xl'>{productProfile.name}</p></div>
                     <div><p className='text-xl py-2'>{productProfile.price}</p></div>
-                    <div className='h-10 bg-blue-500 mt-10'><p className='text-center text-lg py-1 text-white cursor-pointer'>Add to cart</p></div>
+                    <div className='h-10 bg-blue-500 mt-10'><p className='text-center text-lg py-1 text-white cursor-pointer' onClick={handleCart}>Add to cart</p></div>
                     <div className='mt-8'><p className='text-2xl'>heading</p></div>
                     <div className='mt-1'><p>{productProfile.description}</p></div>
                 </div>
             </div>
+
+            {showCart && <div> <Cart/></div>}
 
         </div>
     )

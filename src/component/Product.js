@@ -24,7 +24,7 @@ function Product() {
 
     const submit = async (e) => {
         e.preventDefault();
-        console.log(productCredential);
+        // console.log(productCredential);
     
         const formData = new FormData();
         formData.append('name', productCredential.name);
@@ -33,14 +33,15 @@ function Product() {
         formData.append('stockQuantity', productCredential.quantity);
         formData.append('categoryName', productCredential.category);
         formData.append('image', selectedFile);
+        console.log(formData)
     
-        try {
-            await addProduct(formData);
+        // try {
+        //     await addProduct(formData);
             
            
-        } catch (err) {
-            console.log(err);
-        }
+        // } catch (err) {
+        //     console.log(err);
+        // }
     };
 
     return (
