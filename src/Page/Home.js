@@ -1,4 +1,4 @@
-import React, { useEffect,useContext } from 'react'
+import React, { useEffect, useContext } from 'react'
 import { Link } from 'react-router-dom'
 import Navbar from '../component/Navbar'
 import mainContext from '../Context/mainContext'
@@ -35,13 +35,20 @@ import MainHeader from '../component/MainHeader'
 function Home() {
 
   const context = useContext(mainContext)
-  const {getCartDetail} = context;
+  const { getCartDetail,getProductByGender,setDropDown } = context;
 
 
-  useEffect(()=>{
+  useEffect(() => {
     getCartDetail();
-  },[])
-  
+    
+  }, [])
+
+
+  const clothShow = (gender) =>{
+    getProductByGender(gender, "shirt" )
+    setDropDown(gender)
+  }
+
 
 
   return (
@@ -142,15 +149,15 @@ function Home() {
           <div class="relative m-auto mt-[4vw]  drop-shadow-2xl  ">
             <img src={show2} alt=""
               class="h-[80vw]  m-auto rounded-xl  object-scale-down sm:h-36 sm:mt-2 md:h-80 md:mt-2" />
-            <Link to="menSection"><h2
-              class="cursor-pointer absolute bottom-[9vw] h-[13vw] p-[3.2vw] left-[7vw] bg-gray-100 drop-shadow-xl w-[40vw] text-center rounded-lg text-[4vw]  sm:w-20 sm:h-8 sm:left-2 sm:bottom-3 sm:text-sm sm:p-1.5  md:w-36 md:left-8 md:bottom-5 md:text-lg md:p-3 md:h-14">
+            <Link to="shop/catalog"><h2
+              class="cursor-pointer absolute bottom-[9vw] h-[13vw] p-[3.2vw] left-[7vw] bg-gray-100 drop-shadow-xl w-[40vw] text-center rounded-lg text-[4vw]  sm:w-20 sm:h-8 sm:left-2 sm:bottom-3 sm:text-sm sm:p-1.5  md:w-36 md:left-8 md:bottom-5 md:text-lg md:p-3 md:h-14" onClick={()=>clothShow("male")}>
               Men</h2></Link>
           </div>
           <div class="relative m-auto mt-[4vw]  drop-shadow-2xl  ">
             <img src={show3} alt=""
               class="h-[80vw]  m-auto rounded-xl  object-scale-down sm:h-36 sm:mt-2 md:h-80 md:mt-2" />
-            <Link to="WomenSection"><h2
-              class="cursor-pointer absolute bottom-[9vw] h-[13vw] p-[3.2vw] left-[7vw] bg-gray-100 drop-shadow-xl w-[40vw] text-center rounded-lg text-[4vw]  sm:w-20 sm:h-8 sm:left-2 sm:bottom-3 sm:text-sm sm:p-1.5  md:w-36 md:left-8 md:bottom-5 md:text-lg md:p-3 md:h-14">
+            <Link to="shop/catalog"><h2
+              class="cursor-pointer absolute bottom-[9vw] h-[13vw] p-[3.2vw] left-[7vw] bg-gray-100 drop-shadow-xl w-[40vw] text-center rounded-lg text-[4vw]  sm:w-20 sm:h-8 sm:left-2 sm:bottom-3 sm:text-sm sm:p-1.5  md:w-36 md:left-8 md:bottom-5 md:text-lg md:p-3 md:h-14" onClick={()=>clothShow("female")}>
               Women</h2></Link>
           </div>
           <div class="relative m-auto mt-[4vw]  drop-shadow-2xl  ">

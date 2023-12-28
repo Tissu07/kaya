@@ -27,13 +27,15 @@ import CategoryNavbar from '../component/CategoryNavbar'
 function Shop(props) {
 
     const context = useContext(mainContext)
-    const { getGenderCategoryMale, getGenderCategoryFemale, getGenderCategoryKid, dropDown,cart,fetchCartProductsDetails } = context;
+    const {dropDownShow, getGenderCategoryMale, getGenderCategoryFemale, getGenderCategoryKid, dropDown,cart,fetchCartProductsDetails,setDropDownShow } = context;
 
     useEffect(() => {
         getGenderCategoryMale();
         getGenderCategoryFemale();
         getGenderCategoryKid();
         fetchCartProductsDetails(cart)
+        setDropDownShow(false)
+        console.log(dropDownShow)
     }, [])
 
     const responsive = {

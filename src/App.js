@@ -28,6 +28,9 @@ import Cart from './component/Cart';
 import CartList from './component/CartList';
 import ImageUploadByBash from './component/ImageUploadByBash';
 import ProductUpload from './component/ProductUpload';
+import Login from './component/Login';
+import Signup from './component/Signup';
+import Dashboard from './component/Dashboard';
 
 
 
@@ -70,6 +73,9 @@ function App() {
               <Route exact path="BashUpload" element={<ImageUploadByBash/>} />
               <Route exact path="ProductUpload" element={<ProductUpload/>} />
               <Route exact path="shop/catalog/ProductLarge" element={<ProductLargePage/>} />
+              <Route exact path="login" element={<Login/>} />
+              <Route exact path="signup" element={<Signup/>} />
+              <Route exact path="dashboard" element={<Dashboard/>} />
               
 
 

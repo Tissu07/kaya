@@ -8,8 +8,6 @@ function CategoryNavbar(props) {
     const context = useContext(mainContext)
     const {genderCategoryMale, genderCategoryFemale, genderCategoryKid, dropDownShow, setDropDownShow,dropDown, setDropDown } = context;
     
-    
-
     const onMen = () =>{
         setDropDown("male")
     }

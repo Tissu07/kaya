@@ -32,7 +32,7 @@ function Navbar() {
             </button>
           </div>
           <Link to='/cart' className='md:mt-8'><img src={cartImage} alt=" " class="object-scale-down w-8 md:mx-2 cursor-pointer" /></Link>
-          <Link to="/user" className='md:mt-8'><img src={userImage} alt="" class="object-scale-down w-8 md:mx-2 cursor-pointer" /></Link>
+          <Link to="/login" className='md:mt-8'><img src={userImage} alt="" class="object-scale-down w-8 md:mx-2 cursor-pointer" /></Link>
         </ul>
       </nav>
 

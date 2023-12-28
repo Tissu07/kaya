@@ -14,6 +14,7 @@ const MainState = (props) => {
   const [cart,setCart] = useState([])
   const [cartProduct, setCartProduct] = useState([])
   const [uploadedImage, setUploadedImage] = useState("")
+  const [currentImage, setCurrentImage] = useState("")
 
   //Product detail upload
   const [productCredential, setProductCredential] = useState({ name: "", description: "", price: "", quantity: "", category: "" })
@@ -69,6 +70,18 @@ const MainState = (props) => {
     setProductByGender(json)
   }
 
+  // const getProductByCategory = async (category) => {
+  //   // API call 
+  //   const response = await fetch(`${host}/api/products/category/allitem/${category}`, {
+  //     method: "GET",
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //     },
+  //   });
+  //   const json = await response.json()
+  //   setProductByCategory(json)
+  // }
+
   const addProduct = async (name,description,price,stockQuantity,categoryName,image,gender) => {
     try {
       const response = await fetch(`${host}/api/products/${gender}`, {
@@ -106,7 +119,7 @@ const MainState = (props) => {
 
   const addCart = async (productId, quantity) => {
     try {
-      const response = await fetch(`${host}/api/cart/648a2e6e4beed104b2528f95`, {
+      const response = await fetch(`${host}/api/cart/6575e16eeb5f592bb40ccb6e`, {
         method: "POST",
         body:JSON.stringify({
           productId,
@@ -126,7 +139,7 @@ const MainState = (props) => {
 
   const getCartDetail = async() => {
     try{
-      const response = await fetch(`${host}/api/cart/648a2e6e4beed104b2528f95`, {
+      const response = await fetch(`${host}/api/cart/6575e16eeb5f592bb40ccb6e`, {
         method: "GET",
         headers: {
           'Content-Type': 'application/json',
@@ -134,7 +147,6 @@ const MainState = (props) => {
       });
       const json = await response.json()
       setCart(json);
-      console.log("get cart detail")
     }
     catch(error){
       console.log({error:"Issue in get cart data"})
@@ -142,12 +154,14 @@ const MainState = (props) => {
   }
 
   const cartProductDetail = async (productId) => {
+
     const response = await fetch(`${host}/api/products/${productId}`, {
       method: "GET",
       headers: {
         'Content-Type': 'application/json',
       },
     });
+    
     const json = await response.json();
     // Create a new object with the data from the API response
     const temp = {
@@ -181,6 +195,7 @@ const MainState = (props) => {
       }
 
       setCartProduct(updatedCartProducts);
+      console.log(cartProduct)
     
     }
     catch(error){
@@ -189,7 +204,7 @@ const MainState = (props) => {
   };
 
   return (
-    <mainContext.Provider value={{ genderCategoryMale, getGenderCategoryMale, genderCategoryFemale, genderCategoryKid, getGenderCategoryFemale, getGenderCategoryKid, dropDownShow, setDropDownShow, dropDown, setDropDown, getProductByGender, productByGender, productCredential, setProductCredential, addProduct, getProductById, productProfile, setProductProfile, addCart, cart, getCartDetail,cartProductDetail,cartProduct,fetchCartProductsDetails,cartProduct,uploadedImage, setUploadedImage}}>
+    <mainContext.Provider value={{ genderCategoryMale, getGenderCategoryMale, genderCategoryFemale, genderCategoryKid, getGenderCategoryFemale, getGenderCategoryKid, dropDownShow, setDropDownShow, dropDown, setDropDown, getProductByGender, productByGender,setProductByGender, productCredential, setProductCredential, addProduct, getProductById, productProfile, setProductProfile, addCart, cart, getCartDetail,cartProductDetail,cartProduct,fetchCartProductsDetails,cartProduct,uploadedImage, setUploadedImage,currentImage, setCurrentImage}}>
       {props.children}
     </mainContext.Provider>
   )
