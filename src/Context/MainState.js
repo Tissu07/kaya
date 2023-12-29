@@ -119,14 +119,15 @@ const MainState = (props) => {
 
   const addCart = async (productId, quantity) => {
     try {
-      const response = await fetch(`${host}/api/cart/6575e16eeb5f592bb40ccb6e`, {
+      const response = await fetch(`${host}/api/cart`, {
         method: "POST",
         body:JSON.stringify({
           productId,
           quantity,
         }),
         headers: {
-          "Content-type": "application/json; charset=UTF-8"
+          "Content-type": "application/json; charset=UTF-8",
+          'token': localStorage.getItem('token')
         }
       });
 
@@ -139,10 +140,11 @@ const MainState = (props) => {
 
   const getCartDetail = async() => {
     try{
-      const response = await fetch(`${host}/api/cart/6575e16eeb5f592bb40ccb6e`, {
+      const response = await fetch(`${host}/api/cart`, {
         method: "GET",
         headers: {
           'Content-Type': 'application/json',
+          'token': localStorage.getItem('token')
         },
       });
       const json = await response.json()

@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom'; // Assuming you are using React Router
+import React, { useState, useEffect } from 'react';
+import { Link,useNavigate } from 'react-router-dom'; // Assuming you are using React Router
 
 const Signup = () => {
   const [name, setName] = useState('');
@@ -7,6 +7,14 @@ const Signup = () => {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [passwordMatchError, setPasswordMatchError] = useState(false);
+
+  let navigate= useNavigate() 
+
+  useEffect(()=>{
+    if(localStorage.getItem("token")){
+      navigate("/dashboard")
+    }
+  },[])
 
   const handleSignup = async() => {
     // Check if passwords match
@@ -28,7 +36,14 @@ const Signup = () => {
         }),
       });
       const json = await response.json();
-      console.log(json);
+      if(json.success){
+        console.log("successfully login")
+        localStorage.setItem('token',json.token)
+        navigate('/')                                         //navigate to '/' path
+      }
+      else{
+        alert('invalid Credential')
+      }
     } catch (err) {
       console.log(err)
     }

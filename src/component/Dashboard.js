@@ -24,6 +24,11 @@ const Dashboard = ({ userId }) => {
     
   }, []);
 
+  const logout = ()=>{
+    localStorage.removeItem("token")
+    console.log("successfully logout")
+  }
+
   return (
     <div className="container mx-auto mt-8">
       <h1 className="text-3xl font-semibold mb-4">Customer Dashboard</h1>
@@ -63,6 +68,10 @@ const Dashboard = ({ userId }) => {
 
       <section>
         <Link to="/">Home</Link>
+      </section>
+
+      <section>
+        <Link to="/Login" onClick={logout} className='text-red-400 font-bold'>Logout</Link>
       </section>
     </div>
   );
