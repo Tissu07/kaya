@@ -21,6 +21,8 @@ function CategoryNavbar(props) {
         setDropDown("")
     }
 
+    
+
     return (
         <div className='shadow-md  '>
             <div className='flex gap-8  w-1/2 mx-auto justify-center pt-4'>

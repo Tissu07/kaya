@@ -1,21 +1,31 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import mainContext from '../Context/mainContext'
 import CartList from './CartList';
 function Cart() {
   const context = useContext(mainContext)
   const { cartProduct, cart, fetchCartProductsDetails } = context;
+  const [amount,setAmount] = useState(0)
 
   useEffect(() => {
     fetchCartProductsDetails(cart)
+    countTotalAmount()
   }, [])
+  
+  const countTotalAmount = () =>{
+    let total = 0
+    cartProduct.forEach((element) => {
+      total = element.price + total
+    });
+    setAmount(total)
+  }
+
+  useEffect(()=>{
+    fetchCartProductsDetails(cart)
+    countTotalAmount()
+  },[fetchCartProductsDetails,countTotalAmount])
 
   
 
-  const amount = (cost) =>{
-    const add = 0;
-    add = add + cost
-    return add
-  }
 
   // const eachProductPrice = ()=> {
   //   let i = 0;
@@ -57,16 +67,16 @@ function Cart() {
     // </div>
 
     <div>
-      <p>Your Cart</p>
-      <div className='w-1/2'>
+      <p className='text-3xl font-bold m-5'>Your Cart</p>
+      <div className='w-full lg:w-1/2'>
         {cartProduct.map((each) => (
           <div key={each._id}>
-            <CartList heading={each.name} price={each.price} image={each.image} />
+            <CartList heading={each.name} price={each.price} image={each.image} description={each.description} quantity={each.quantity}/>
           </div>
         ))}
       </div>
       <div>
-        <p>Total Amount = {amount}</p>
+        <p className='mx-5 text-xl'>Total Amount = Rs. {amount}</p>
       </div>
     </div>
   )

@@ -155,7 +155,7 @@ const MainState = (props) => {
     }
   }
 
-  const cartProductDetail = async (productId) => {
+  const cartProductDetail = async (productId,quantity) => {
 
     const response = await fetch(`${host}/api/products/${productId}`, {
       method: "GET",
@@ -171,6 +171,7 @@ const MainState = (props) => {
       description: json.description,
       price: json.price,
       image: json.image,
+      quantity: quantity
     };
 
     return temp
@@ -192,12 +193,11 @@ const MainState = (props) => {
       const updatedCartProducts = [];
       
       for (const product of cart.products) {
-        const productDetail = await cartProductDetail(product.productId);
+        const productDetail = await cartProductDetail(product.productId,product.quantity);
         updatedCartProducts.push(productDetail);
       }
 
       setCartProduct(updatedCartProducts);
-      console.log(cartProduct)
     
     }
     catch(error){
@@ -206,7 +206,7 @@ const MainState = (props) => {
   };
 
   return (
-    <mainContext.Provider value={{ genderCategoryMale, getGenderCategoryMale, genderCategoryFemale, genderCategoryKid, getGenderCategoryFemale, getGenderCategoryKid, dropDownShow, setDropDownShow, dropDown, setDropDown, getProductByGender, productByGender,setProductByGender, productCredential, setProductCredential, addProduct, getProductById, productProfile, setProductProfile, addCart, cart, getCartDetail,cartProductDetail,cartProduct,fetchCartProductsDetails,cartProduct,uploadedImage, setUploadedImage,currentImage, setCurrentImage}}>
+    <mainContext.Provider value={{ genderCategoryMale, getGenderCategoryMale, genderCategoryFemale, genderCategoryKid, getGenderCategoryFemale, getGenderCategoryKid, dropDownShow, setDropDownShow, dropDown, setDropDown, getProductByGender, productByGender,setProductByGender, productCredential, setProductCredential, addProduct, getProductById, productProfile, setProductProfile, addCart, cart, getCartDetail,cartProductDetail,cartProduct,fetchCartProductsDetails,cartProduct,uploadedImage, setUploadedImage,currentImage, setCurrentImage, setCartProduct}}>
       {props.children}
     </mainContext.Provider>
   )

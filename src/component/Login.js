@@ -1,17 +1,22 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState,useContext } from 'react';
 import { Link } from 'react-router-dom'; // Assuming you are using React Router
 import { useNavigate } from 'react-router-dom' 
+import mainContext from '../Context/mainContext'
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  let navigate= useNavigate() 
+  let navigate= useNavigate()
+  const context = useContext(mainContext)
+  const {setCartProduct} = context; 
 
   useEffect(()=>{
     if(localStorage.getItem("token")){
       navigate("/dashboard")
     }
+    setCartProduct([])
   },[])
+
 
   const handleLogin = async () => {
     const response = await fetch(`http://localhost:5000/api/auth/login`, {

@@ -9,7 +9,9 @@ function CartList(props) {
         </div>
         <div className=''>
             <p className='text-xl'>{props.heading}</p>
+            <p className=''>{props.description}</p>
             <p className=''>{props.price}</p>
+            <p className=''>{props.quantity}</p>
         </div>
       </div>
     </div>

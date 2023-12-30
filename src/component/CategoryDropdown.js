@@ -4,10 +4,12 @@ import mainContext from '../Context/mainContext'
 
 function CategoryDropdown(props) {
   const context = useContext(mainContext)
-  const { setDropDownShow, dropDown, getProductByGender, productByGender } = context;
+  const { setDropDownShow, dropDown, getProductByGender, productByGender, setDropDown } = context;
 
   const clothShow = (e) =>{
     getProductByGender(dropDown, e.target.innerText )
+    localStorage.setItem('gender',dropDown)
+    localStorage.setItem('category',e.target.innerText)
   }
 
 
