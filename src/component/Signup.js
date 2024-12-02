@@ -41,6 +41,9 @@ const Signup = () => {
         localStorage.setItem('token',json.token)
         navigate('/')                                         //navigate to '/' path
       }
+      else if(json.error === "Email already exists"){
+        alert("Email already exists")
+      }
       else{
         alert('invalid Credential')
       }

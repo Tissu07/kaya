@@ -3,7 +3,7 @@ import { useState } from "react";
 
 
 const MainState = (props) => {
-  const host = 'http://localhost:5000';
+  const host = 'https://kayas-api.vercel.app';
   const [genderCategoryMale, setGenderCategoryMale] = useState([])
   const [genderCategoryFemale, setGenderCategoryFemale] = useState([])
   const [genderCategoryKid, setGenderCategoryKid] = useState([])

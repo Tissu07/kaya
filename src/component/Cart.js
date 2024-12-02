@@ -75,9 +75,9 @@ function Cart() {
           </div>
         ))}
       </div>
-      <div>
+      {/* <div>
         <p className='mx-5 text-xl'>Total Amount = Rs. {amount}</p>
-      </div>
+      </div> */}
     </div>
   )
 }

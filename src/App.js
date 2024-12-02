@@ -6,6 +6,8 @@ import {
   Route,
 } from "react-router-dom";
 
+import MainState from './Context/MainState';
+
 import Home from './Page/Home'
 import ListCard from './component/ListCard'
 import Header from './component/Header';
@@ -17,7 +19,6 @@ import Shop from './Page/Shop';
 import Footer from './component/Footer';
 import MainHeader from './component/MainHeader';
 import CategoryNavbar from './component/CategoryNavbar';
-import MainState from './Context/MainState';
 import Catalog from './Page/Catalog';
 import ProductCard2 from './component/ProductCard2';
 import ProductProfile from './component/ProductProfile';
@@ -35,14 +36,14 @@ import Dashboard from './component/Dashboard';
 
 
 function App() {
-  const handleGoogleLogin = () => {
-    // Redirect to the Google authentication URL
-    const backendUrl = 'http://localhost:5000'; // Example URL
+  // const handleGoogleLogin = () => {
+  //   // Redirect to the Google authentication URL
+  //   const backendUrl = 'http://localhost:5000'; // Example URL
 
-    // Redirect to the Google authentication URL on the backend
-    window.location.href = `${backendUrl}/api/auth/google`;
-    return false;
-  };
+  //   // Redirect to the Google authentication URL on the backend
+  //   window.location.href = `${backendUrl}/api/auth/google`;
+  //   return false;
+  // };
   return (
     <div>
       {/* <button className='black' onClick={handleGoogleLogin}>
